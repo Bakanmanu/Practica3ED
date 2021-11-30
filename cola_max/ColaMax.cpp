@@ -60,15 +60,19 @@ ColaMax<T>& ColaMax<T>::operator= (const ColaMax<T> & otra){
 
 template<class T>
 void ColaMax<T>::poner(const Elemento & elem){
-
-
-
-    num_elem++;
+    Celda * aux = new Celda(elem, 0);           // Creamos el nuevo nodo a introducir
+    if(primera==0){                             // Si la cola esta vacía 
+        primera = ultima = aux;                 // Inicializamos todo al nodo introducido
+    }else{                                      // En caso contrario
+        ultima->siguiente = aux;                // Enlazamos el puntero siguiente de ultima al nuevo nodo
+        ultima = aux;                           // Actualizamos ultima al nuevo nodo
+    }
+    num_elem++;                                 // Aumentamos el numer de elementos de la cola
 }
 
 template<class T>
 void ColaMax<T>::quitar(){
-
+    assert(primera!=0);
 
 
     num_elem--;

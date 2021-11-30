@@ -135,13 +135,6 @@ class ColaMax{
         }
 
         /**
-         * @brief Funcion para obtener el maximo de la cola 
-         * 
-         * @return T& 
-         */
-        T& getMaximo();
-
-        /**
          * @brief Añade un elemento al final de la cola en ultima
          * 
          * @param elem Elemento que se añade a la cola
@@ -161,6 +154,13 @@ class ColaMax{
         int getNum_elem(){
             return num_elem;
         }
+
+        /**
+         * @brief Funcion para obtener el maximo de la cola 
+         * 
+         * @return T& 
+         */
+        T& getMaximo();
 };
 
 
