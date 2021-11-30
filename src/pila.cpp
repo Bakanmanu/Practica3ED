@@ -1,16 +1,16 @@
 /**
   * @file pila.cpp
-  * @brief Implementación del TDA Pila
+  * @brief Implementaciï¿½n del TDA Pila
   *
   */
 #include <cassert>
-// #include <pila.h>  El codigo ya se incluye en pila.h
+// #include "pila.h"  //El codigo ya se incluye en pila.h
 
 /* _________________________________________________________________________ */
 
 template <class T>
 Pila<T>::Pila(const Pila<T> & otra){
-  if (otra.primera!=0){            //Si la pila original no está vacía
+  if (otra.primera!=0){            //Si la pila original no estï¿½ vacï¿½a
     Celda *p = otra.primera;       //Copio el puntero al primer nodo
     Celda *nueva;
     primera = 
@@ -22,7 +22,7 @@ Pila<T>::Pila(const Pila<T> & otra){
       p = p->siguiente;
     }
   }
-  else                              //Si la pila original está vacía
+  else                              //Si la pila original estï¿½ vacï¿½a
     primera = 0;
   num_elem = otra.num_elem;     //En cualquier caso, copiamos num_elem
 }
@@ -32,7 +32,7 @@ Pila<T>::Pila(const Pila<T> & otra){
 template <class T>
 Pila<T>::~Pila(){
   Celda *aux;
-  while (primera!=0){              //Mientras la pila no esté vacía,
+  while (primera!=0){              //Mientras la pila no estï¿½ vacï¿½a,
     aux = primera;                 //Copiamos el puntero al tope de la pila
     primera = primera->siguiente;  //Avanzamos primera
     delete aux;                    //Borramos el nodo de la lista
@@ -45,7 +45,7 @@ template <class T>
 Pila<T>& Pila<T>::operator=(const Pila<T> & otra){
   Celda * p;
   
-  if (this!=&otra){    //Comprobación de rigor. Si son diferentes objetos
+  if (this!=&otra){    //Comprobaciï¿½n de rigor. Si son diferentes objetos
     while (primera!=0){    //Borramos la lista de nodos de la pila *this
       p = primera;
       primera = primera->siguiente;
