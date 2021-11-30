@@ -7,17 +7,17 @@ CPPFLAGS = -Wall -g  -I$(INC) -c
 
 	
 # ************ Compilación de módulos ************
-$(BIN)/usocolas_max: $(OBJ)/usocolas_max.o $(OBJ)/Cola_max_Pila.o $(OBJ)/Pila.o 
+$(BIN)/usocolas_max: $(OBJ)/usocolas_max.o $(OBJ)/cola_max_pila.o $(OBJ)/pila.o 
 	$(CXX) -o $(BIN)/usocolas_max $(OBJ)/usocolas_max.o -I$(INC)
 
 $(OBJ)/usocolas_max.o: $(SRC)/usocolas_max.cpp
 	$(CXX) $(CPPFLAGS) -o $(OBJ)/usocolas_max.o $(SRC)/usocolas_max.cpp -I$(INC)	
 
-$(OBJ)/Cola_max_Pila.o: $(SRC)/Cola_max_Pila.cpp
-	$(CXX) $(CPPFLAGS) -o $(OBJ)Cola_max_Pila.o $(INC)/Cola_max_Pila.h
+$(OBJ)/cola_max_pila.o: $(SRC)/cola_max_pila.cpp
+	$(CXX) $(CPPFLAGS) -o $(OBJ)/cola_max_pila.o $(INC)/cola_max_pila.h
 
-$(OBJ)/Pila.o: $(SRC)/Pila.cpp
-	$(CXX) $(CPPFLAGS) -o $(OBJ)Pila.o $(INC)/Pila.h
+$(OBJ)/pila.o: $(SRC)/pila.cpp
+	$(CXX) $(CPPFLAGS) -o $(OBJ)/pila.o $(INC)/pila.h
 
 all: $(BIN)/pruebacola_max
 # ************ Generación de documentación ******************
