@@ -13,54 +13,55 @@
 
 #include <cassert>
 
+
+/**
+ * @brief Estructura de los elementos que tendran las celdas de la colaMax
+ * @param valor Valor del elemento de la celda
+ * @param maximo Valor maximo de la cola
+ */
+struct Elemento{
+    T valor;
+    T maximo;
+
+    /**
+     * @brief Constructor por defecto
+     */
+    Elemento(): valor(0), maximo(0){}
+
+    /**
+     * @brief Constructor por parametros
+     * @param val Contenido de valor 
+     * @param max Contenido de maximo
+     */
+    Elemento(const T & val, const T & max): valor(val), maximo(max){}
+
+    /**
+     * @brief Constructor de copia
+     * @param original Elemento del que se hara la copia
+     */
+    Elemento(const Elemento & original):valor(original.valor), maximo(original.maximo){} 
+    
+    /**
+     * @brief Sobrecargar del operador "<<" para imprimir los valores del elemento
+     * @param os 
+     * @param elem 
+     * @return ostream& 
+     */
+    friend ostream& operator<<(ostream& os, const Elemento& elem){
+        os << "[" << elem.valor << ", " << elem.maximo << "] ";
+        return os;
+    }
+    
+};
+
 /**
  * @brief T.D.A. ColaMax
- * 
- * 
- * 
+ *
  */
 template <class T>
 class ColaMax{
     private:
-        /**
-         * @brief Estructura de los elementos que tendran las celdas de la colaMax
-         * @param valor Valor del elemento de la celda
-         * @param maximo Valor maximo de la cola
-         */
-        struct Elemento{
-            T valor;
-            T maximo;
-
-            /**
-             * @brief Constructor por defecto
-             */
-            Elemento(): valor(0), maximo(0){}
-
-            /**
-             * @brief Constructor por parametros
-             * @param val Contenido de valor 
-             * @param max Contenido de maximo
-             */
-            Elemento(const T & val, const T & max): valor(val), maximo(max){}
-
-            /**
-             * @brief Constructor de copia
-             * @param original Elemento del que se hara la copia
-             */
-            Elemento(const Elemento & original):valor(original.valor), maximo(original.maximo){} 
-            
-            /**
-             * @brief Sobrecargar del operador "<<" para imprimir los valores del elemento
-             * @param os 
-             * @param elem 
-             * @return ostream& 
-             */
-            friend ostream& operator<<(ostream& os, const Elemento& elem){
-                os << "[" << elem->valor << ", " << elem->maximo << "] ";
-                return os;
-            }
-            
-        };
+        
         /**
          * @brief Estructura de las celdas de la colaMax
          * @param elemento Atributo de la celda que almacena el valor y el maximo

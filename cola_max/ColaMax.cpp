@@ -4,6 +4,8 @@
 
 using namespace std;
 
+typedef int T;
+
 template <class T>
 ColaMax<T>::ColaMax(const ColaMax<T> & original){
     if(!original.vacia()){                  //Si tiene elementos procedemos a copiarlos todos
@@ -73,7 +75,12 @@ void ColaMax<T>::poner(const Elemento & elem){
 template<class T>
 void ColaMax<T>::quitar(){
     assert(primera!=0);
-
-
+    Celda<T> *aux = primera;
+    primera = primera->siguiente;
+    delete aux;
+    if (primera==0)
+        ultima = 0;
     num_elem--;
 }
+
+
