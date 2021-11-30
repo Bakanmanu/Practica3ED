@@ -2,7 +2,7 @@
   * @file pila.h
   * @brief Fichero cabecera del TDA Pila
   *
-  * Gestiona una secuencia de elementos con facilidades para la inserción y
+  * Gestiona una secuencia de elementos con facilidades para la inserciï¿½n y
   * borrado de elementos en un extremo
   *
   */
@@ -18,22 +18,22 @@
  *
  * Una instancia @e v del tipo de datos abstracto Pila sobre el tipo @c T es 
  * una lista de elementos del mismo con un funcionamiento @e LIFO (Last In, 
- * First Out). En una pila, las operaciones de inserción y borrado de elementos
+ * First Out). En una pila, las operaciones de inserciï¿½n y borrado de elementos
  * tienen lugar en uno de los extremos denominado @e Tope. Una pila de longitud
  * @e n la denotamos
 
  * - [a1,a2,a3,..,an>
 
- * donde @e ai es el elemento de la posición i-ésima.
+ * donde @e ai es el elemento de la posiciï¿½n i-ï¿½sima.
 
- * En esta pila, tendremos acceso únicamente al elemento del @e Tope, es decir, 
- * a @e an. El borrado o consulta de un elemento será sobre  @e an, y la
- * inserción de un nuevo elemento se hará sobre éste. Quedando el elemento
+ * En esta pila, tendremos acceso ï¿½nicamente al elemento del @e Tope, es decir, 
+ * a @e an. El borrado o consulta de un elemento serï¿½ sobre  @e an, y la
+ * inserciï¿½n de un nuevo elemento se harï¿½ sobre ï¿½ste. Quedando el elemento
  * insertado como @e Tope de la pila.
 
- * Si @e n=0 diremos que la pila está vacía.
+ * Si @e n=0 diremos que la pila estï¿½ vacï¿½a.
 
- * El espacio requerido para el almacenamiento es O(n). Donde n es el número de
+ * El espacio requerido para el almacenamiento es O(n). Donde n es el nï¿½mero de
  * elementos de la Pila.
  *
  * @author J.Fdez-Valdivia. 
@@ -43,7 +43,7 @@ template <class T>
 class Pila{
   private:
     struct Celda {
-      T elemento;        ///< Elemento de información.
+      T elemento;        ///< Elemento de informaciï¿½n.
       Celda * siguiente; ///< Puntero al siguiente nodo.
 
       /**
@@ -52,8 +52,8 @@ class Pila{
       Celda() : siguiente(0){
       }
       /**
-       * @brief Constructor con parámetros
-       * @param elem Elemento de información.
+       * @brief Constructor con parï¿½metros
+       * @param elem Elemento de informaciï¿½n.
        * @param sig Puntero al siguiente nodo.
        */
       Celda(const T & elem, Celda * sig): elemento(elem), siguiente(sig){
@@ -61,7 +61,7 @@ class Pila{
     };
 
     Celda * primera; ///< Puntero al primer nodo de la lista.
-    int num_elem;    ///< Número de elementos de la pila.
+    int num_elem;    ///< Nï¿½mero de elementos de la pila.
 
   public:
     // ---------------  Constructores ----------------
@@ -72,7 +72,7 @@ class Pila{
     }
     /**
      * @brief Constructor de copias
-     * @param otra La pila de la que se hará la copia.
+     * @param otra La pila de la que se harï¿½ la copia.
      */
     Pila(const Pila<T> & otra);
     // ------------------ Destructor ------------------
@@ -82,12 +82,12 @@ class Pila{
     ~Pila();
     // --------------- Otras funciones ---------------
     /**
-     * @brief Operador de asignación
+     * @brief Operador de asignaciï¿½n
      * @param otra La pila que se va a asignar.
      */
     Pila& operator= (const Pila<T>& otra);
     /**
-     * @brief Comprueba si la pila está vacía
+     * @brief Comprueba si la pila estï¿½ vacï¿½a
      */
     bool vacia() const{
       return (primera==0);
@@ -96,19 +96,19 @@ class Pila{
      * @brief Devuelve el elemento del tope de la pila
      */
     T& tope (){
-      assert(primera!=0);       //Si la pila está vacía, abortar
+      assert(primera!=0);       //Si la pila estï¿½ vacï¿½a, abortar
       return primera->elemento; //Devuelve el elemento del tope de la pila
     }
     /**
      * @brief Devuelve el elemento del tope de una pila constante
      */
     const T & tope () const{
-      assert(primera!=0);       //Si la pila está vacía, abortar
+      assert(primera!=0);       //Si la pila estï¿½ vacï¿½a, abortar
       return primera->elemento; //Devuelve el elemento del tope de la pila
     }
     /**
-     * @brief Añade un elemento "encima" del tope de la pila
-     * @param elem Elemento que se va a añadir.
+     * @brief Aï¿½ade un elemento "encima" del tope de la pila
+     * @param elem Elemento que se va a aï¿½adir.
      */
     void poner(const T & elem);
     /**
@@ -116,13 +116,13 @@ class Pila{
      */
     void quitar();
     /**
-     * @brief Devuelve el número de elementos de la pila
+     * @brief Devuelve el nï¿½mero de elementos de la pila
      */
     int num_elementos() const{
       return num_elem;
     }
 };
 
-#include <pila.cpp>
+// #include "src/pila.cpp"
 
 #endif // __Pila_H__
